@@ -1,0 +1,89 @@
+-- MySQL dump 10.13  Distrib 5.6.19, for Linux (x86_64)
+--
+-- Host: localhost    Database: lportal
+-- ------------------------------------------------------
+-- Server version	5.6.24
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `BlogsEntry`
+--
+
+DROP TABLE IF EXISTS `BlogsEntry`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `BlogsEntry` (
+  `uuid_` varchar(75) DEFAULT NULL,
+  `entryId` bigint(20) NOT NULL,
+  `groupId` bigint(20) DEFAULT NULL,
+  `companyId` bigint(20) DEFAULT NULL,
+  `userId` bigint(20) DEFAULT NULL,
+  `userName` varchar(75) DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `modifiedDate` datetime DEFAULT NULL,
+  `title` varchar(150) DEFAULT NULL,
+  `urlTitle` varchar(150) DEFAULT NULL,
+  `description` longtext,
+  `content` longtext,
+  `displayDate` datetime DEFAULT NULL,
+  `allowPingbacks` tinyint(4) DEFAULT NULL,
+  `allowTrackbacks` tinyint(4) DEFAULT NULL,
+  `trackbacks` longtext,
+  `smallImage` tinyint(4) DEFAULT NULL,
+  `smallImageId` bigint(20) DEFAULT NULL,
+  `smallImageURL` longtext,
+  `status` int(11) DEFAULT NULL,
+  `statusByUserId` bigint(20) DEFAULT NULL,
+  `statusByUserName` varchar(75) DEFAULT NULL,
+  `statusDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`entryId`),
+  UNIQUE KEY `IX_DB780A20` (`groupId`,`urlTitle`),
+  UNIQUE KEY `IX_1B1040FD` (`uuid_`,`groupId`),
+  KEY `IX_72EF6041` (`companyId`),
+  KEY `IX_430D791F` (`companyId`,`displayDate`),
+  KEY `IX_BB0C2905` (`companyId`,`displayDate`,`status`),
+  KEY `IX_EB2DCE27` (`companyId`,`status`),
+  KEY `IX_8CACE77B` (`companyId`,`userId`),
+  KEY `IX_A5F57B61` (`companyId`,`userId`,`status`),
+  KEY `IX_2672F77F` (`displayDate`,`status`),
+  KEY `IX_81A50303` (`groupId`),
+  KEY `IX_621E19D` (`groupId`,`displayDate`),
+  KEY `IX_F0E73383` (`groupId`,`displayDate`,`status`),
+  KEY `IX_1EFD8EE9` (`groupId`,`status`),
+  KEY `IX_FBDE0AA3` (`groupId`,`userId`,`displayDate`),
+  KEY `IX_DA04F689` (`groupId`,`userId`,`displayDate`,`status`),
+  KEY `IX_49E15A23` (`groupId`,`userId`,`status`),
+  KEY `IX_69157A4D` (`uuid_`),
+  KEY `IX_5E8307BB` (`uuid_`,`companyId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BlogsEntry`
+--
+
+LOCK TABLES `BlogsEntry` WRITE;
+/*!40000 ALTER TABLE `BlogsEntry` DISABLE KEYS */;
+/*!40000 ALTER TABLE `BlogsEntry` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-04-29 19:28:22
